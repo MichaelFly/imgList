@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .testBox {
+            /* 这里的定位要是相对或者绝对 */
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #eee;
+            box-sizing: border-box;
+        }
+
+        .testBox::before,
+        .testBox::after {
+            content: '';
+            /* 这里必须是绝对定位 */
+            position: absolute;
+            background: #fff;
+        }
+
+        .testBox::before {
+            width: calc(100% - 70px);
+            height: calc(100% + 4px);
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .testBox::after {
+            height: calc(100% - 70px);
+            width: calc(100% + 4px);
+            left: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+<div class="testBox"></div>
+</body>
+
+</html>
